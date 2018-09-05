@@ -1,0 +1,15 @@
+{
+  "name": "botbert",
+  "version": "1.0.0",
+  "description": "A bot for the Computer Vision Lab's Slack",
+  "main": "index.js",
+  "dependencies": {
+    "@slack/client": "^4.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aaron S. Jackson <asj@cs.nott.ac.uk>",
+  "license": "MIT"
+}
