@@ -17,6 +17,9 @@ const syn = [
     {regex: /.*when is the.*meeting/gi,
      handler: require('./handler/meeting.js').get},
 
+    {regex: /^who is (.*)/gi,
+     handler: require('./handler/whois.js')},
+
 ];
 
 rtm.on('message', (msg) => {

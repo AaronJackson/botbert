@@ -4,7 +4,8 @@
   "description": "A bot for the Computer Vision Lab's Slack",
   "main": "index.js",
   "dependencies": {
-    "@slack/client": "^4.6.0"
+    "@slack/client": "^4.6.0",
+    "ldapjs": "^1.0.2"
   },
   "devDependencies": {},
   "scripts": {
