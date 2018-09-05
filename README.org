@@ -1,0 +1,26 @@
+* Botbert - A Bot for the Computer Vision Laboratory's Slack
+
+** Adding commands
+
+If you want to add a command, simply modify the regular expression in
+the `syns` variable and write a module which returns a function to
+handle the message.
+
+** Running the code
+
+First create a bot user and add it's bot-token to a file like below, called `config.js`:
+
+#+BEGIN_SRC javascript
+var config = {};
+
+config.token = "xoxb-your-bot-token-here";
+
+module.exports = config;
+#+END_SRC
+
+Then install the node modules and run the bot:
+
+#+BEGIN_SRC bash
+npm install
+node index.js
+#+END_SRC
