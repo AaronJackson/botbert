@@ -21,6 +21,7 @@ module.exports = config;
 Then install the node modules and run the bot:
 
 #+BEGIN_SRC bash
+mkdir .data
 npm install
 node index.js
 #+END_SRC

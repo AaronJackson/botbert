@@ -13,9 +13,9 @@ const syn = [
      handler: require('./handler/greeting.js')},
 
     {regex: /.*the next meeting.*on (.*\w)/gi,
-     handler: require('./handler/set-meeting.js')},
-    {regex: /.*when is.*the.*meeting/gi,
-     handler: require('./handler/get-meeting.js')},
+     handler: require('./handler/meeting.js').set},
+    {regex: /.*when is the.*meeting/gi,
+     handler: require('./handler/meeting.js').get},
 
 ];
 
