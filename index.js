@@ -17,15 +17,22 @@ const syn = [
     {regex: /.*when is the.*meeting/gi,
      handler: require('./handler/meeting.js').get},
 
-    {regex: /^who is (.*)/gi,
+    {regex: /^who is ([a-z0-9]*)/gi,
      handler: require('./handler/whois.js')},
 
+    {regex: /shut up/gi,
+     handler: require('./handler/shutup.js')},
+
+    {regex: /i'm ([a-z]*)/gi,
+     handler: require('./handler/im.js')},
 ];
 
 rtm.on('message', (msg) => {
-    for (s in syn) {
+    for (var s in syn) {
 	var matches = syn[s].regex.exec(msg.text);
-	if (matches != null) {
+	syn[s].regex.lastIndex = 0; // reset the expression
+	if (matches !== null) {
+	    console.log(syn[s].regex);
 	    syn[s].handler(matches, msg, rtm);
 	    break;
 	}
