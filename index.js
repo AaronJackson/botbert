@@ -10,13 +10,21 @@ const syn = [
      handler: require('./handler/gpufree.js')},
 
     {regex: /^hello.*|good morning.*|^hey.*/gi,
-     handler: require('./handler/greeting.js')}
+     handler: require('./handler/greeting.js')},
+
+    {regex: /.*the next meeting.*on (.*\w)/gi,
+     handler: require('./handler/set-meeting.js')},
+    {regex: /.*when is.*the.*meeting/gi,
+     handler: require('./handler/get-meeting.js')},
+
 ];
 
 rtm.on('message', (msg) => {
     for (s in syn) {
 	var matches = syn[s].regex.exec(msg.text);
-	if (matches != null)
+	if (matches != null) {
 	    syn[s].handler(matches, msg, rtm);
+	    break;
+	}
     }    
 });
