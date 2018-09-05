@@ -7,7 +7,10 @@ rtm.start();
 
 const syn = [
     {regex: /.*what.*status.*of\s(\w+).*$/i,
-     handler: require('./handler/gpufree.js')}
+     handler: require('./handler/gpufree.js')},
+
+    {regex: /hello?|good morning?|hey?/gi,
+     handler: require('./handler/greeting.js')}
 ];
 
 rtm.on('message', (msg) => {
