@@ -17,6 +17,9 @@ const syn = [
     {regex: /.*when is the.*meeting/gi,
      handler: require('./handler/meeting.js').get},
 
+    {regex: /.*who.*using\s(\w+).*$/i,
+     handler: require('./handler/gpuuser.js')},
+
     {regex: /^who is ([a-z0-9]*)/gi,
      handler: require('./handler/whois.js')},
 
@@ -26,15 +29,13 @@ const syn = [
     {regex: /i'm ([a-z]*)/gi,
      handler: require('./handler/im.js')},
 
-    {regex: /.*who.*using\s(\w+).*$/i,
-     handler: require('./handler/gpuuser.js')},];
+];
 
 rtm.on('message', (msg) => {
     for (var s in syn) {
 	var matches = syn[s].regex.exec(msg.text);
 	syn[s].regex.lastIndex = 0; // reset the expression
 	if (matches !== null) {
-	    console.log(syn[s].regex);
 	    syn[s].handler(matches, msg, rtm);
 	    break;
 	}

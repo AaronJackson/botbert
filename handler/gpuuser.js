@@ -13,28 +13,22 @@ module.exports = function (matches, msg, rtm) {
 	}
 
 	var lines = data.split("\n");
-
 	var users = {}
 
 	for (var l=0; l < lines.length; l++) {
-
-	    var a = lines[l].match(/^([0-9]) (\w).*/);         	    
-	    if (a != null){ 
-             if (typeof users[a[2]]==='undefined'){
-                  users[a[2]]=0;
-             }
-             users[a[2]]++;
+	    var a = lines[l].match(/^([0-9]) (\w*).*/);
+	    console.log(a);
+	    if (a != null){
+		if (typeof users[a[2]]==='undefined'){
+                    users[a[2]]=0;
+		}
+		users[a[2]]++;
             }
-
 	}
-	
+
 	var r = ''
-
-       for (var user in users){
-
-	r+=`${user} is using ${users[user]}\n`
-
-      }
+	for (var user in users)
+	    r+=`${user} is using ${users[user]}\n`
 
 	rtm.sendMessage(r, msg.channel)
 	    .then((msg) => console.log(`Message sent`))
