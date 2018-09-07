@@ -26,8 +26,8 @@ const syn = [
     {regex: /shut up/gi,
      handler: require('./handler/shutup.js')},
 
-     regex: /tell me a joke/gi,
-      handler: require('./handler/joke.js')},
+    {regex: /tell me a joke/gi,
+      handler: require('./handler/jokes.js')},
 
     {regex: /i'm ([a-z]*)/gi,
      handler: require('./handler/im.js')},
