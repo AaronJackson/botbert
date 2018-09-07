@@ -25,7 +25,9 @@ const syn = [
 
     {regex: /i'm ([a-z]*)/gi,
      handler: require('./handler/im.js')},
-];
+
+    {regex: /.*who.*using\s(\w+).*$/i,
+     handler: require('./handler/gpuuser.js')},];
 
 rtm.on('message', (msg) => {
     for (var s in syn) {
